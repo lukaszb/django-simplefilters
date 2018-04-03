@@ -14,6 +14,7 @@ Example::
 
 '''
 from rest_framework.filters import *  # NOQA
+import dateutil.parser
 import logging
 
 
@@ -124,3 +125,8 @@ class FlagFilter(BaseFilter):
         else:
             log.warn("Unrecognized param for flag filter: %r" % value)
 
+
+class DateTimeFilter(BaseFilter):
+
+    def get_single_value(self, value):
+        return dateutil.parser.parse(value)

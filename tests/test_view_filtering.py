@@ -1,5 +1,6 @@
 from .todos import models
 from .todos import views
+from freezegun import freeze_time
 import pytest
 
 
@@ -28,6 +29,27 @@ def test_list__filter_by_status(arf, url, expected_todos):
     create_todo('todo2', status='done')
     create_todo('todo3', status='done')
     create_todo('todo4', status='archived')
+
+    request = arf.get(url)
+    response = views.todo_list(request)
+    assert response.status_code == 200, response.data
+    assert {todo['title'] for todo in response.data} == expected_todos
+
+
+@pytest.mark.parametrize('url, expected_todos', [
+    ('?modified_after=2018-04-02T20:00Z', {'todo3', 'todo4'}),
+    ('?modified_after=2018-04-02T20:45Z', {'todo3', 'todo4'}),
+    ('?modified_after=2018-04-03T00:00Z', {'todo4'}),
+    ('?modified_after=2018-05-01T00:00Z', set()),
+])
+def test_list__filter_by_status(arf, url, expected_todos):
+    with freeze_time('2018-04-02T19:15Z'):
+        create_todo('todo1')
+        create_todo('todo2')
+    with freeze_time('2018-04-02T20:45Z'):
+        create_todo('todo3')
+    with freeze_time('2018-04-03T09:00Z'):
+        create_todo('todo4')
 
     request = arf.get(url)
     response = views.todo_list(request)

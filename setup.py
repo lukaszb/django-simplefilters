@@ -13,4 +13,7 @@ setup(
     zip_safe=False,
     py_modules=['simplefilters'],
     include_package_data=True,
+    install_requires=[
+        'python-dateutil',
+    ],
 )
