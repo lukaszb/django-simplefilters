@@ -17,10 +17,13 @@ def test_list(arf):
     assert {todo['id'] for todo in response.data} == {todo1.id, todo2.id, todo3.id}
 
 
-def test_list__filter_by_status(arf):
-    url = '?status=done'
-    expected_todos = {'todo2', 'todo3'}
-
+@pytest.mark.parametrize('url, expected_todos', [
+    ('?status=open', {'todo1'}),
+    ('?status=done', {'todo2', 'todo3'}),
+    ('?status=done&status=archived', {'todo2', 'todo3', 'todo4'}),
+    ('?status=wrong', set()),
+])
+def test_list__filter_by_status(arf, url, expected_todos):
     create_todo('todo1', status='open')
     create_todo('todo2', status='done')
     create_todo('todo3', status='done')
