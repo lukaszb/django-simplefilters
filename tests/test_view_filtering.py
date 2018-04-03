@@ -41,6 +41,7 @@ def test_list__filter_by_status(arf, url, expected_todos):
     ('?modified_after=2018-04-02T20:45Z', {'todo3', 'todo4'}),
     ('?modified_after=2018-04-03T00:00Z', {'todo4'}),
     ('?modified_after=2018-05-01T00:00Z', set()),
+    ('?modified_after=NOT_A_TIMESTAMP', {'todo1', 'todo2', 'todo3', 'todo4'}),
 ])
 def test_list__filter_by_status(arf, url, expected_todos):
     with freeze_time('2018-04-02T19:15Z'):

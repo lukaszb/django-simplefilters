@@ -129,4 +129,9 @@ class FlagFilter(BaseFilter):
 class DateTimeFilter(BaseFilter):
 
     def get_single_value(self, value):
-        return dateutil.parser.parse(value)
+        try:
+            return dateutil.parser.parse(value)
+        except ValueError:
+            # Wrong timestamps should be ignored
+            log.debug("Wrong timestamp filter value: %r" % value)
+            return None
