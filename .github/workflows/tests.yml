@@ -44,4 +44,4 @@ jobs:
 
       - name: Code tests (with SQLite)
         run: |
-          py.test
+          PYTHONPATH=. py.test
