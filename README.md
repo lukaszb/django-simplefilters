@@ -10,7 +10,7 @@ The main difference with other solutions, i.e. [django-filter](https://pypi.pyth
         def filter_status(self, queryset, values):
             return queryset.filter(status__in=values)
 
-than try to lookup this special case (multiple values) in your filtering library documentation.
+than try to find this special case (multiple values) in your filtering library documentation.
 
 
 
@@ -115,6 +115,6 @@ Sometimes we want to pass multiple params from the url. In example, we might wan
 
 For this to work, simply indicate that we want to use `many` values at the filter method definition:
 
-      @filters.CharFilter(many)
+      @filters.CharFilter(many=True)
       def filter_status(self, queryset, values):
           return queryset.filter(status__in=values)
