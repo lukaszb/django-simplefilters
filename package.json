@@ -1,0 +1,17 @@
+{
+  "name": "django-simplefilters",
+  "version": "1.0.0",
+  "description": "Documentation for django-simplefilters",
+  "main": "index.js",
+  "repository": "https://github.com/lukaszb/django-simplefilters",
+  "author": "Lukasz Balcerzak <lukaszbalcerzak@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^0.22.4"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  }
+}

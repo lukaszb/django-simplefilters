@@ -1,5 +1,7 @@
 # django-simplefilters
 
+[Full documentation](https://lukaszb.github.io/django-simplefilters/)
+
 This is a drop-in replacement for built-in Django Rest Framework filters package. It provides an easy way to retrieve params from the URL and use them to narrow results of the queryset.
 
 The main difference with other solutions, i.e. [django-filter](https://pypi.python.org/pypi/django-filter), is that we do not try to handle each case and actual filtering is left for the user to implement. This might sound counterintuitive for a filtering library but we believe that in many cases it's much easier to write something like
