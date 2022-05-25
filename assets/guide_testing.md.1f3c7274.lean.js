@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.5c24c556.js";const _='{"title":"Testing","description":"","frontmatter":{},"headers":[{"level":2,"title":"Parametrized tests","slug":"parametrized-tests"}],"relativePath":"guide/testing.md"}',p={},o=t("",7),e=[o];function c(u,i,l,r,k,d){return a(),s("div",null,e)}var h=n(p,[["render",c]]);export{_ as __pageData,h as default};

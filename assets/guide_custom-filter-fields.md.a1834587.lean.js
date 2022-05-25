@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as e}from"./app.5c24c556.js";const _='{"title":"Custom filters","description":"","frontmatter":{},"headers":[{"level":2,"title":"Example","slug":"example"}],"relativePath":"guide/custom-filter-fields.md"}',t={},o=e("",5),p=[o];function l(r,c,i,u,d,k){return a(),n("div",null,p)}var m=s(t,[["render",l]]);export{_ as __pageData,m as default};
