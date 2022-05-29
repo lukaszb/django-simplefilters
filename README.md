@@ -1,5 +1,7 @@
 # django-simplefilters
 
+![Tests Badge](https://github.com/lukaszb/django-simplefilters/actions/workflows/tests.yml/badge.svg)
+
 [Full documentation](https://lukaszb.github.io/django-simplefilters/)
 
 This is a drop-in replacement for built-in Django Rest Framework filters package. It provides an easy way to retrieve params from the URL and use them to narrow results of the queryset.
